@@ -2,28 +2,22 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use App\Http\Controllers\Controller;
 
 class LogoutController extends Controller
 {
     /**
      * Log out authenticated user.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request): JsonResponse
     {
-        // $request()->user()->logout();
-        // auth()->guard('web')->logout();
-        // $request->user()->tokens()->delete();
-
-        $request->user()->currentAccessToken()->delete();
+        $request->user()->tokens()->delete();
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Successfully logged out user',
+            'message' => 'Successfully logged out user.',
         ]);
     }
 }

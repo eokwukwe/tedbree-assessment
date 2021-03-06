@@ -62,7 +62,7 @@ class User extends Authenticatable
     /**
      * Replace space with + for avatar url
      */
-    protected function prepareNameForAvatar(): string
+    public function prepareNameForAvatar(): string
     {
         return str_replace(' ', '+', $this->name);
     }

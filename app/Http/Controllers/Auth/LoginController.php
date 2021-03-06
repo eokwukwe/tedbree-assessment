@@ -5,26 +5,27 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Auth\AuthRequest;
-use Illuminate\Auth\AuthenticationException;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
     /**
-     * Log in registered user
+     * Log in registered user.
      */
     public function __invoke(AuthRequest $request): JsonResponse
     {
-        $credentials = $request->only('email', 'password');
+        $user = User::where('email', $request->email)->first();
 
-        if (!auth()->attempt($credentials)) {
-            return response()->json(['message' => 'Invalid login credentials.']);
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            throw ValidationException::withMessages([
+                'email' => ['Invalid login credentials.'],
+            ]);
         }
-
-        $user = User::where('email', $request['email'])->firstOrFail();
 
         $token = $user->createToken('auth_token')->plainTextToken;
 
-        return response()->json(['token' => $token]);
+        return response()->json(['token' => $token], 201);
     }
 }

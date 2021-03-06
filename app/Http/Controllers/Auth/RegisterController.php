@@ -25,6 +25,6 @@ class RegisterController extends Controller
             'status' => 'success',
             'message' => 'User Created Successfully',
             'data' => new UsersResource($user)
-        ]);
+        ], 201);
     }
 }

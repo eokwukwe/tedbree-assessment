@@ -24,18 +24,38 @@ class AuthRequest extends FormRequest
      */
     public function rules()
     {
+        return $this->isLoginPath() ? $this->loginRules() : $this->registerRules();
+    }
+
+    /**
+     * Login path
+     */
+    protected function isLoginPath(): string
+    {
+        return $this->path() == 'v1/login';
+    }
+
+    /**
+     * Login rules
+     */
+    protected function loginRules(): array
+    {
+
         return [
-            'name' => ['string', 'max:255', Rule::requiredIf(!$this->isLoginPath())],
-            'email' => [
-                'required', 'string', 'email', 'max:255',
-                !$this->isLoginPath() ? 'unique:users' : ''
-            ],
-            'password' => ['required', 'string', 'min:8'],
+            'email' => ['required', 'email'],
+            'password' => ['required']
         ];
     }
 
-    protected function isLoginPath()
+    /**
+     * Login rules
+     */
+    protected function registerRules(): array
     {
-        return $this->path() == 'v1/login';
+        return [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8'],
+        ];
     }
 }
