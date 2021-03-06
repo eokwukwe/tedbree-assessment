@@ -26,7 +26,10 @@ class AuthRequest extends FormRequest
     {
         return [
             'name' => ['string', 'max:255', Rule::requiredIf(!$this->isLoginPath())],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => [
+                'required', 'string', 'email', 'max:255',
+                !$this->isLoginPath() ? 'unique:users' : ''
+            ],
             'password' => ['required', 'string', 'min:8'],
         ];
     }
