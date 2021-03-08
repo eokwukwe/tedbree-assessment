@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\User\UsersResource;
 use Illuminate\Http\Request;
 
-class CurrentUserController extends Controller
+class AuthUserController extends Controller
 {
     /**
      * Fetch currently logged in user.

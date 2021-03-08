@@ -29,7 +29,6 @@ class LoginAndOutTest extends TestCase
             [
                 'accept' => 'application/json',
                 'content-type' => 'application/json',
-
             ]
         )->assertStatus(422)
             ->assertJson([
@@ -54,7 +53,6 @@ class LoginAndOutTest extends TestCase
             [
                 'accept' => 'application/json',
                 'content-type' => 'application/json',
-
             ]
         )->assertStatus(422)
             ->assertJson([
@@ -79,7 +77,6 @@ class LoginAndOutTest extends TestCase
             [
                 'accept' => 'application/json',
                 'content-type' => 'application/json',
-
             ]
         )->assertStatus(422)
             ->assertJson([
@@ -106,7 +103,6 @@ class LoginAndOutTest extends TestCase
             [
                 'accept' => 'application/json',
                 'content-type' => 'application/json',
-
             ]
         )->assertStatus(422)
             ->assertJson([
@@ -136,7 +132,6 @@ class LoginAndOutTest extends TestCase
             [
                 'accept' => 'application/json',
                 'content-type' => 'application/json',
-
             ]
         )->assertStatus(201);
     }
@@ -157,7 +152,6 @@ class LoginAndOutTest extends TestCase
             [
                 'accept' => 'application/json',
                 'content-type' => 'application/json',
-
             ]
         )->assertStatus(200)
             ->assertJson([
@@ -185,7 +179,6 @@ class LoginAndOutTest extends TestCase
             [
                 'accept' => 'application/json',
                 'content-type' => 'application/json',
-
             ]
         )->assertStatus(200)
             ->assertJson([

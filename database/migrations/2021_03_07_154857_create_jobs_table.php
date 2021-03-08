@@ -20,32 +20,16 @@ class CreateJobsTable extends Migration
             $table->string('location');
             $table->string('company');
             $table->string('company_logo')->nullable();
-            $table->string('benefits'); // Comma separate values, e.g. free meal, health insurance etc
+            $table->string('benefits');
             $table->string('salary');
-            $table->timestamp('submission_deadline')->nullable();
+            $table->string('type');
+            $table->string('category');
+            $table->string('work_condition');
             $table->timestamps();
 
             $table->foreignId('user_id')
                 ->constrained()
                 ->onDelete('cascade');
-
-            $table->foreignId('type_id')
-                ->nullable()
-                ->constrained()
-                ->onUpdate('cascade')
-                ->onDelete('set null');
-
-            $table->foreignId('category_id')
-                ->nullable()
-                ->constrained()
-                ->onUpdate('cascade')
-                ->onDelete('set null');
-
-            $table->foreignId('condition_id')
-                ->nullable()
-                ->constrained()
-                ->onUpdate('cascade')
-                ->onDelete('set null');
         });
     }
 

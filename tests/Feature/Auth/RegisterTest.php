@@ -18,7 +18,7 @@ class RegisterTest extends TestCase
     }
 
     /** @test */
-    public function it_validates_that_name_is_provided_when_registering_a_new_user()
+    public function it_validates_that_name_is_provided_when_creating_a_new_user()
     {
         $this->postJson(
             '/v1/register',
@@ -44,7 +44,7 @@ class RegisterTest extends TestCase
     }
 
     /** @test */
-    public function it_validates_that_name_is_a_string_when_registering_a_new_user()
+    public function it_validates_that_name_is_a_string_when_creating_a_new_user()
     {
         $this->postJson(
             '/v1/register',
@@ -70,7 +70,7 @@ class RegisterTest extends TestCase
     }
 
     /** @test */
-    public function it_validates_that_email_is_provided_when_registering_a_new_user()
+    public function it_validates_that_email_is_provided_when_creating_a_new_user()
     {
         $this->postJson(
             '/v1/register',
@@ -96,7 +96,7 @@ class RegisterTest extends TestCase
     }
 
     /** @test */
-    public function it_validates_that_email_format_is_valid_when_registering_a_new_user()
+    public function it_validates_that_email_format_is_valid_when_creating_a_new_user()
     {
         $this->postJson(
             '/v1/register',
@@ -122,7 +122,7 @@ class RegisterTest extends TestCase
     }
 
     /** @test */
-    public function it_validates_that_email_is_unique_valid_when_registering_a_new_user()
+    public function it_validates_that_email_is_unique_valid_when_creating_a_new_user()
     {
         $user = User::factory()->create();
 
@@ -150,7 +150,7 @@ class RegisterTest extends TestCase
     }
 
     /** @test */
-    public function it_validates_that_password_is_provided_when_registering_a_new_user()
+    public function it_validates_that_password_is_provided_when_creating_a_new_user()
     {
         $this->postJson(
             '/v1/register',
@@ -176,7 +176,7 @@ class RegisterTest extends TestCase
     }
 
     /** @test */
-    public function it_validates_that_password_is_a_string_when_registering_a_new_user()
+    public function it_validates_that_password_is_a_string_when_creating_a_new_user()
     {
         $this->postJson(
             '/v1/register',
@@ -202,7 +202,7 @@ class RegisterTest extends TestCase
     }
 
     /** @test */
-    public function it_validates_that_password_is_a_string_of_atleat_eight_characters_when_registering_a_new_user()
+    public function it_validates_that_password_is_a_string_of_atleast_8_characters_when_creating_a_new_user()
     {
         $this->postJson(
             '/v1/register',
