@@ -21,11 +21,6 @@ class TypeFactory extends Factory
      */
     public function definition()
     {
-        $types = [
-            'Full-time', 'Temporary', 'Contract',
-            'Permanent', 'Internship', 'Volunteer'
-        ];
-
         return [
             'name' => $this->faker->unique()->name,
         ];

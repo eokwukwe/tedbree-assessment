@@ -21,11 +21,6 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-        $categories = [
-            'Tech', 'Health care', 'Hospitality',
-            'Customer Service', 'Marketing'
-        ];
-
         return [
             'name' => $this->faker->unique()->name,
         ];

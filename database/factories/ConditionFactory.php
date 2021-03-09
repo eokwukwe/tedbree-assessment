@@ -21,8 +21,6 @@ class ConditionFactory extends Factory
      */
     public function definition()
     {
-        $conditions = ['Remote', 'Part Remote', 'On-Premise',];
-
         return [
             'name' => $this->faker->unique()->name,
         ];

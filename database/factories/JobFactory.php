@@ -4,9 +4,9 @@ namespace Database\Factories;
 
 use App\Models\Job;
 use App\Models\Type;
+use App\Models\User;
 use App\Models\Category;
 use App\Models\Condition;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class JobFactory extends Factory
@@ -25,12 +25,13 @@ class JobFactory extends Factory
      */
     public function definition()
     {
-        $type = Type::factory()->create();
-
-        $condition = Condition::factory()->create();
-
-        $category = Category::factory()->create();
         $user = User::factory()->create();
+        
+        $type = Type::factory()->create();
+        
+        $category = Category::factory()->create();
+        
+        $condition = Condition::factory()->create();
 
         return [
             'title' => $this->faker->jobTitle,
