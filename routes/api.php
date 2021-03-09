@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\AuthUserController;
 use App\Http\Controllers\Jobs\JobApplicationsController;
 
 Route::post('login', LoginController::class);
+
 Route::post('register', RegisterController::class);
 
 Route::apiResource('jobs', JobsController::class)->only(['index', 'show']);
